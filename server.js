@@ -2,13 +2,26 @@ var mosca = require("mosca");
 var path = require("path");
 const { Reader } = require("@tanjaae/thaismartcardreader");
 const myReader = new Reader();
-
+var figlet = require('figlet');
 var moscaSettings = {
   port: 11883,
   http: {
     port: 18080
   }
 };
+
+
+figlet.text('NAPHATTHARAWAT!', {
+  // font: 'Ghost',
+  horizontalLayout: 'default',
+  verticalLayout: 'default',
+  width: 100,
+  whitespaceBreak: true
+}, function(err, data) {
+  console.log(data);
+  console.log("=============================================");
+});
+
 
 var server = new mosca.Server(moscaSettings); //here we start mosca
 server.on("ready", setup); //on init it fires up setup()
@@ -119,7 +132,7 @@ myReader.on("card-inserted", async person => {
     title_name: thName.prefix,
     first_name: thName.firstname,
     last_name: thName.lastname,
-    date_of_birth: `${dob.year}/${dob.month}/${dob.day}`,
+    date_of_birth: `${dob.year}-${dob.month}-${dob.day}`,
     address:objAddress
   };
   var packet = {

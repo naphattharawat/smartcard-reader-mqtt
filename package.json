@@ -1,5 +1,5 @@
 {
-  "name": "queue-mqtt",
+  "name": "smartcard-reader-mqtt",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,17 +7,26 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "bin":"server.js",
-  "pkg":{
-    "assets": [ "node_modules/**/*"],
+  "bin": "server.js",
+  "pkg": {
+    "assets": [
+      "node_modules/**/*"
+    ],
     "outputPath": "dist",
-    "targets":["node10-win-x64","node10-macos-x64"]
+    "targets": [
+      "node10-win-x64",
+      "node10-macos-x64"
+    ]
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@tanjaae/thaismartcardreader": "^0.2.3",
     "dotenv": "^6.1.0",
-    "mosca": "^2.8.3"
+    "figlet": "^1.5.0",
+    "hexify": "^1.0.4",
+    "mosca": "^2.8.3",
+    "smartcard": "^1.0.46"
   }
 }
